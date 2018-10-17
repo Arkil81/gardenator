@@ -61,7 +61,21 @@ def generate_ramp(ramp):
 
 pi.write(DIR, 0)  # Set direction
 
-# Ramp up
+# Ramp forwards
+generate_ramp([[320, 50],
+	[500, 100],
+	[800, 200],
+	[1000, 4600],
+	[800, 200],
+	[500, 100],
+	[320, 50]
+])
+
+sleep(1)
+
+pi.write(DIR, 1)  # Set direction
+
+# Ramp backwards
 generate_ramp([[320, 50],
 	[500, 100],
 	[800, 200],
