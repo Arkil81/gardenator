@@ -59,20 +59,15 @@ def generate_ramp(ramp):
 #pi.set_PWM_dutycycle(STEP, 128)  # PWM 1/2 On 1/2 Off
 #pi.set_PWM_frequency(STEP, 500)  # 500 pulses per second
 
-try:
-    while True:
-        pi.write(DIR, 0)  # Set direction
-        sleep(.1)
-    # Ramp up
-    generate_ramp([[320, 200],
+pi.write(DIR, 0)  # Set direction
+
+# Ramp up
+generate_ramp([[320, 200],
     	       [500, 200],
 	       [800, 200],
 	       [1000, 200],
 	       [1600, 200],
 	       [2000, 200]])        
 
-except KeyboardInterrupt:
-    print ("\nCtrl-C pressed.  Stopping PIGPIO and exiting...")
-finally:
-    pi.set_PWM_dutycycle(STEP, 0)  # PWM off
-    pi.stop()
+pi.set_PWM_dutycycle(STEP, 0)  # PWM off
+pi.stop()
