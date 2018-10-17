@@ -59,17 +59,17 @@ def generate_ramp(ramp):
 #pi.set_PWM_dutycycle(STEP, 128)  # PWM 1/2 On 1/2 Off
 #pi.set_PWM_frequency(STEP, 500)  # 500 pulses per second
 
-pi.write(DIR, 1)  # Set direction
+pi.write(DIR, 0)  # Set direction
 
 # Ramp up
 generate_ramp([[320, 50],
 	[500, 100],
 	[800, 200],
-	[1000, 500],
+	[1000, 4600],
 	[800, 200],
 	[500, 100],
 	[320, 50]
-])        
+])
 
 pi.set_PWM_dutycycle(STEP, 0)  # PWM off
 pi.stop()
