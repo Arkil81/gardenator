@@ -71,19 +71,19 @@ generate_ramp([[320, 50],
 	[320, 50]
 ])
 
-sleep(1)
+#sleep(1)
 
-pi.write(DIR, 1)  # Set direction
+#pi.write(DIR, 1)  # Set direction
 
 # Ramp backwards
-generate_ramp([[320, 50],
-	[500, 100],
-	[800, 200],
-	[1000, 4600],
-	[800, 200],
-	[500, 100],
-	[320, 50]
-])
+#generate_ramp([[320, 50],
+#	[500, 100],
+#	[800, 200],
+#	[1000, 4600],
+#	[800, 200],
+#	[500, 100],
+#	[320, 50]
+#])
 
 pi.set_PWM_dutycycle(STEP, 0)  # PWM off
 pi.stop()
