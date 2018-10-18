@@ -40,6 +40,8 @@ def generate_ramp(ramp):
     pi.wave_chain(chain)  # Transmit chain.
 
 
+# Ramp forwards until end, then switch direction and ramp backwards
+
 pi.write(DIR, 0)  # Set direction
 
 # Ramp forwards
@@ -51,5 +53,10 @@ generate_ramp([[320, 50],
 	[500, 100],
 	[320, 50]
 ])
+
+while pi.wave_tx_busy():
+    print("Sleeping...")
+    sleep(0.1)
+
 
 pi.stop()
