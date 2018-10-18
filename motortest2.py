@@ -11,6 +11,7 @@ pi = pigpio.pi()
 pi.set_mode(DIR, pigpio.OUTPUT)
 pi.set_mode(STEP, pigpio.OUTPUT)
 
+
 def generate_ramp(ramp):
     """Generate ramp wave forms.
     ramp:  List of [Frequency, Steps]
@@ -47,13 +48,12 @@ pi.write(DIR, 0)  # Set direction
 
 # Ramp forwards
 generate_ramp([[320, 50],
-	[500, 100],
-	[800, 200],
-	[1000, 4600],
-	[800, 200],
-	[500, 100],
-	[320, 50]
-])
+               [500, 100],
+               [800, 200],
+               [1000, 4600],
+               [800, 200],
+               [500, 100],
+               [320, 50]])
 
 while pi.wave_tx_busy():
     print("Moving...")
@@ -66,13 +66,12 @@ pi.write(DIR, 1)  # Set direction
 
 # Ramp backwards
 generate_ramp([[320, 50],
-	[500, 100],
-	[800, 200],
-	[1000, 4600],
-	[800, 200],
-	[500, 100],
-	[320, 50]
-])
+               [500, 100],
+               [800, 200],
+               [1000, 4600],
+               [800, 200],
+               [500, 100],
+               [320, 50]])
 
 while pi.wave_tx_busy():
     print("Moving...")
