@@ -42,6 +42,7 @@ def generate_ramp(ramp):
 
 # Ramp forwards until end, then switch direction and ramp backwards
 
+print("Forwards!!")
 pi.write(DIR, 0)  # Set direction
 
 # Ramp forwards
@@ -55,8 +56,27 @@ generate_ramp([[320, 50],
 ])
 
 while pi.wave_tx_busy():
-    print("Sleeping...")
+    print("Moving...")
     sleep(0.1)
 
 
+print("Backwards!!")
+pi.write(DIR, 1)  # Set direction
+
+
+# Ramp backwards
+generate_ramp([[320, 50],
+	[500, 100],
+	[800, 200],
+	[1000, 4600],
+	[800, 200],
+	[500, 100],
+	[320, 50]
+])
+
+while pi.wave_tx_busy():
+    print("Moving...")
+    sleep(0.1)
+
+print("All done!")
 pi.stop()
